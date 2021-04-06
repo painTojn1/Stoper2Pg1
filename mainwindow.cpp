@@ -6,6 +6,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    time = 0;
+
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(onTimerTimeout()));
+    ui -> label -> setText(QDateTime::fromMSecsSinceEpoch(time, Qt::UTC).toString("hh:mm:ss.zzz"));
 }
 
 MainWindow::~MainWindow()
@@ -13,3 +19,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_startButton_clicked()
+{
+    if(ui -> startButton -> text() == "start")
+        {
+            qDebug() << "start";
+            timer -> start(1);
+            ui -> startButton -> setText("pauza");
+        }
+    else
+        {
+            qDebug() << "stop";
+            timer -> stop();
+            ui -> startButton -> setText("start");
+        }
+}
+
+void MainWindow::onTimerTimeout()
+{
+    time++;
+    ui -> label -> setText(QDateTime::fromMSecsSinceEpoch(time, Qt::UTC).toString("hh:mm:ss.zzz"));
+}
