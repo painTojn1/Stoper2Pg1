@@ -35,6 +35,12 @@ void MainWindow::on_startButton_clicked()
             ui -> startButton -> setText("start");
         }
 }
+void MainWindow::on_resetButton_clicked()
+{
+    ui->textEdit->clear();
+    ui->label->setText("00:00:00.000");
+    qDebug()<<"Reset";
+}
 
 void MainWindow::onTimerTimeout()
 {
@@ -47,11 +53,4 @@ void MainWindow::on_lapTimeButton_clicked()
     const QString tekst = ui->label->text();
     ui->textEdit->setText(tekst);
     qDebug()<<"Zapis";
-}
-
-void MainWindow::on_resetButton_clicked()
-{
-    ui->textEdit->clear();
-    ui->label->setText("00:00:00.000");
-    qDebug()<<"Reset";
 }
