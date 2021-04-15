@@ -41,3 +41,17 @@ void MainWindow::onTimerTimeout()
     time++;
     ui -> label -> setText(QDateTime::fromMSecsSinceEpoch(time, Qt::UTC).toString("hh:mm:ss.zzz"));
 }
+
+void MainWindow::on_lapTimeButton_clicked()
+{
+    const QString tekst = ui->label->text();
+    ui->textEdit->setText(tekst);
+    qDebug()<<"Zapis";
+}
+
+void MainWindow::on_resetButton_clicked()
+{
+    ui->textEdit->clear();
+    ui->label->setText("00:00:00.000");
+    qDebug()<<"Reset";
+}

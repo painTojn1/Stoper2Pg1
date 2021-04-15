@@ -48,7 +48,7 @@
      </font>
     </property>
     <property name="text">
-     <string/>
+     <string>00:00:00.000</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -223,7 +223,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -20,6 +20,10 @@ private slots:
     void on_startButton_clicked();
     void onTimerTimeout();
 
+    void on_lapTimeButton_clicked();
+
+    void on_resetButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
